@@ -5,15 +5,15 @@ import { Box, Button } from "@mui/material";
 
 
 function App() {
-  const [board, setBoard] = useState<object>([]);
-  const [isGameOver, setIsGameOver] = useState<boolean|null>(null);
-  const [, setResult] = useState<string|null>(null);
-  const [turn, setTurn] = useState<string|null>(null);
-  console.log(board)
+  const [board, setBoard] = useState<object[]>([]);
+  const [isGameOver, setIsGameOver] = useState<boolean>();
+  const [, setResult] = useState<string>();
+  const [turn, setTurn] = useState<string>();
+
   useEffect(() => {
     initGame()
     const subscribe = gameSubject.subscribe(game => {
-      setBoard(board)
+      setBoard(game.board)
       setIsGameOver(game.isGameOver)
       setResult(game.result)
       setTurn(game.turn)
@@ -21,7 +21,7 @@ function App() {
     )
     return () => subscribe.unsubscribe()
   }, [])
-  
+  console.log(board)
   return (
     <div className="app">
       <Box

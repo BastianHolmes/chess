@@ -7,7 +7,7 @@ interface Square {
   black: boolean
 }
 
-const Square: React.FC<Square> = ({ children, black }) => {
+const Square:React.FC<Square> = ({ children, black }) => {
   const { palette } = useTheme();
   return (
     <Box

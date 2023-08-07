@@ -10,7 +10,7 @@ interface Piece {
   position: string
 }
 
-const Piece: React.FC<Piece> = ({ piece, position }) => {
+const Piece:React.FC<Piece> = ({ piece, position }) => {
   const { type, color } = piece ||  { type: '', color: '' };
   const [, drag, preview] = useDrag({
     type:"piece",

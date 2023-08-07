@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Box } from '@mui/material'
 import BoardSquare from './BoardSquare';
 
@@ -7,7 +7,7 @@ interface Board {
   turn: string|null
 }
 
-const Board: React.FC<Board>= ({ board, turn }) => {
+const Board:React.FC<Board>= ({ board, turn }) => {
   const [currBoard, setCurrBoard] = useState([]);
   useEffect(() => {
     setCurrBoard(
@@ -16,7 +16,7 @@ const Board: React.FC<Board>= ({ board, turn }) => {
   }, [board, turn])
   const getPosition = (i: number): {
     x: number,
-    y:number
+    y: number
   } => {
     const x = turn === 'w' ? i % 8 :Math.abs((i % 8) - 7);
     const y = turn === 'w' ? Math.abs(Math.floor(i / 8) - 7) : Math.floor(i / 8);
@@ -34,8 +34,6 @@ const Board: React.FC<Board>= ({ board, turn }) => {
     const letter = ["a", "b", "c", "d", "e", "f", "g", "h"][x];
     return `${letter}${y + 1}`
   }
-
-  console.log(`${currBoard} is?`)
   return (
     <Box
     width="100%"
