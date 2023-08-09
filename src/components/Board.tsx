@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import BoardSquare from './BoardSquare';
 
 interface Board {
-  board: string[];
+  board: object[];
   turn: string|null
 }
 
